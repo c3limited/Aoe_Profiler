@@ -82,7 +82,7 @@ class Varien_Profiler {
 			$trace = debug_backtrace();
 			$className = get_class($trace[1]['args'][0]);
 			$entityId = $trace[1]['args'][1];
-			$attributes = $trace[1]['args'][2];
+            $attributes = isset($trace[1]['args'][2]) ? $trace[1]['args'][2] : null;
 			self::$stackLog[$currentPointer]['detail'] = "$className, id: $entityId, attributes: " . var_export($attributes, true);
 		}
 
